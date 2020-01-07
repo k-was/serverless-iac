@@ -1,12 +1,10 @@
 #!/bin/sh
 
-go get
-
 GOOS=linux go build
 
-zip outyet.zip outyet
+zip serverless-iac.zip serverless-iac
 
-aws s3 cp outyet.zip s3://serverless-iac/
+aws s3 cp serverless-iac.zip s3://serverless-iac/
 
 aws cloudformation package \
     --template-file template.yaml \
@@ -18,6 +16,6 @@ aws cloudformation deploy \
     --stack-name serverless-outyet-stack \
     --capabilities CAPABILITY_IAM
 
-rm outyet
-rm outyet.zip
+rm serverless-iac
+rm serverless-iac.zip
 

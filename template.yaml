@@ -6,9 +6,9 @@ Resources:
   GoAPI:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: outyet
+      Handler: serverless-iac
       Runtime: go1.x
-      CodeUri: ./outyet.zip
+      CodeUri: ./serverless-iac.zip
       Events:
         Request:
           Type: Api
